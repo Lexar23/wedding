@@ -1,26 +1,25 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.cursiveFont{
+    font-family: "Alex Brush", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.login{
+    background: rgba(172, 124, 200, 0.4);
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 2px );
+-webkit-backdrop-filter: blur( 2px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.myBG{
+    width: 100dvw;
+    height: 100dvh;
+    position: relative;
+    padding: 8px;
+    background-image: url(../public/img/IMG-20240725-WA0033.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
