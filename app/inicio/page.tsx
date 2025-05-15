@@ -1,14 +1,16 @@
-'use client'
+
+import React from 'react'
 
 import CountDown from '@/components/countdown/CountDown'
-import React from 'react'
+import Navigation from '@/components/cards/Navigation'
+import Header from '@/components/header/header'
 
 export default function page() {
   return (
     <div>
-        <div className="myBackground absolute w-full h-1/4"> </div>
-        <div className="mylogo relative"></div>
+        <Header />
         <CountDown />
+        <Navigation />
     </div>
   )
 }
