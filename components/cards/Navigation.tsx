@@ -13,12 +13,12 @@ export default function Navigation() {
             <div className="card">
                 <Image className='icon' src={iglesia} alt={''} />
                 <h3>jajaja por ahora </h3>
-                <Link href={'#'} className='waze'>como llegar</Link>
+                <Link href={'#'} className='btn'>como llegar</Link>
             </div>
             <div className="card">
                 <Image className='icon' src={copas} alt={''} />
                 <h3>jajaja por ahora </h3>
-                <Link href={'#'} className='waze'>como llegar</Link>
+                <Link href={'#'} className='btn'>como llegar</Link>
             </div>
         </div>
     )
