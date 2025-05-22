@@ -28,8 +28,8 @@ export default function CurvedTriptychSlider() {
   const offsets = [-1, 0, 1] // izquierda, centro, derecha
 
   return (
-    <div className="flex flex-col items-center gap-4 realtive h-1/2">
-      <div className="flex justify-center items-center gap-4 p-4 relative h-120">
+    <div className="flex flex-col items-center realtive h-1/2">
+      <div className="flex justify-center items-center gap-4 p-4 relative h-100">
         {offsets.map((offset) => {
           const imageSrc = getImage(offset)
           const isCenter = offset === 0
@@ -52,7 +52,7 @@ export default function CurvedTriptychSlider() {
           )
         })}
       </div>
-        <Link className='btn' href={''}>Más fotos</Link>   
+        <Link className='btn mb-20' href={''}>Más fotos</Link>   
     </div>
   )
 }

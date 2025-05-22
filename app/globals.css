@@ -1,19 +1,48 @@
 @import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
-body{
+
+:root {
+    --body: #fde8d3;
+    --myBG: #C8A2C8;
+    --letterDark: #657166;
+    --letterLight: #daebe3;
+    --btnPrimary: #99cdd8;
+    --btnSecondary: #f3c3b2;
+    --details: purple;
+
+}
+
+* {
+    box-sizing: border-box;
+    color: #000;
+}
+
+body {
     height: fit-content;
-    background-color: rgb(231, 202, 237);
+    background-color: var(--body);
+    background-image: url(../public/img/hojas.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.landscape{
+
+.landscape {
     width: 100%;
     max-width: 900px;
-    background-color: rgb(231, 202, 237);
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 5px;
+    background-color: var(--myBG);
     margin: auto;
-    
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
 }
+
+
 
 .cursiveFont {
     font-family: "Alex Brush", cursive;
@@ -40,47 +69,101 @@ body{
     background-size: cover;
 }
 
+
+/* --------------header------------------- */
+
 .myBackground {
     width: 100dvw;
+    max-width: 900px;
     height: 50dvh;
-    position: absolute;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
-.headerImage{
-    width: 50vh;
-}
-.headerImage{
-    width: 60vw;
+
+.headerImage {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    height: max-content;
     position: absolute;
+
 }
+
 .mylogo {
-    width: 100dvw;
-    height: 50dvh;
-    position: relative;
+    width: 60dvw;
+    height: max-content;
+    position: absolute;
+    margin: auto;
 }
-.cards{
+
+/* --------------Cards------------------- */
+
+.cardsContainer {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1;
 }
-.card{
-    width: 40%;
-    height: 20vh;
+
+.card {
+    width: 45%;
+    height: 30vh;
     background-color: antiquewhite;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     border-radius: 10px;
+    text-align: center;
 }
-.icon{
-    width: 40%;
+
+.timeSet {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 20px;
 }
-.btn{
+
+.icon {
+    width: 50%;
+}
+
+.btn {
     width: fit-content;
     padding: 10px;
-    background-color: gr;
+    background: var(--btnPrimary);
     text-align: center;
+    border-radius: 5px;
+    color: var(--letterLight);
+}
+
+.bigCard {
+    width: 95%;
+    background-color: var(--body);
+    border-radius: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    padding: 2rem;
+    margin-bottom: 20px;
+
+}
+
+@media (min-width: 720px) {
+    .landscape {
+        border: 5px solid var(--details);
+        box-sizing: content-box;
+    }
+
+    .mylogo {
+        width: 250px;
+
+    }
 }

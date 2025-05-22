@@ -1,16 +1,51 @@
-'use client'
+// app/components/Countdown.tsx
+'use client';
 
-import Countdown from 'react-countdown'
+import React from 'react';
 
-const targetDate = new Date('2025-08-23T13:30:00')
+type CountdownProps = {
+  date: string; // ISO format (ej: '2025-06-01T00:00:00')
+};
 
-export default function CountDown() {
-  return (
-    <div className="text-center text-3xl font-bold flex flex-col mb-10">
-      <h2 className='m-auto w-3/4 text-2xl mb-4'>Cordialmente te esperamos el dia sábado 23 de agosto del 2025</h2>
-      <h2>Faltan</h2>
-      <label className='text-lg' htmlFor="">Dias Hr Min sec</label>
-      <Countdown date={targetDate} />
-    </div>
-  )
+export default class Countdown extends React.Component<CountdownProps> {
+  interval: NodeJS.Timeout | null = null;
+  state = {
+    timeLeft: '',
+  };
+
+  componentDidMount() {
+    this.calculateTimeLeft();
+    this.interval = setInterval(this.calculateTimeLeft, 1000);
+  }
+
+  componentWillUnmount() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
+
+  calculateTimeLeft = () => {
+    const now = new Date().getTime();
+    const target = new Date(this.props.date).getTime();
+    const difference = target - now;
+
+    if (difference <= 0) {
+      this.setState({ timeLeft: '¡El evento ha comenzado!' });
+      if (this.interval) clearInterval(this.interval);
+      return;
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    this.setState({
+      timeLeft: `${days}d ${hours}h ${minutes}m ${seconds}s`,
+    });
+  };
+
+  render() {
+    return <span className='text-4xl timeSet'>{this.state.timeLeft}</span>;
+  }
 }
